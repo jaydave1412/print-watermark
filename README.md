@@ -98,13 +98,6 @@ For non-removable watermarks, use server-side PDF generation.
 
 ---
 
-## 📄 License
-
-This project is provided as-is for internal and commercial use.  
-You are free to modify and integrate it into your software.
-
----
-
 ## 🙏 Attribution
 
 Logo PNGs used in this project are provided by  
