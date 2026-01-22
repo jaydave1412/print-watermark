@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brand Watermark Example</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 40px;
+        line-height: 1.6;
+        position: relative;
+      }
+
+      /* -------------------------
+       WATERMARK (SCREEN + PRINT)
+    -------------------------- */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 320px;
+        height: 320px;
+        transform: translate(-50%, -50%);
+        background-image: url("./hf.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: 0.07;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* -------------------------
+       PRINT BUTTON
+    -------------------------- */
+      .print-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 18px;
+        font-size: 14px;
+        background: #111;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        z-index: 10;
+      }
+
+      .print-btn:hover {
+        background: #333;
+      }
+
+      /* -------------------------
+       PRINT-SPECIFIC TWEAKS
+    -------------------------- */
+      @media print {
+        .print-btn {
+          display: none;
+        }
+
+        body {
+          padding: 25mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="print-btn" onclick="window.print()">Print</button>
+
+    <h1>Sample Multi-Page Document</h1>
+
+    <p>
+      This document demonstrates a branding watermark that is visible both on
+      screen and on printed pages. The watermark is centered and repeated
+      automatically on every printed page.
+    </p>
+
+    <!-- Long content to force multiple pages -->
+    <h2>Section 1</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+    </p>
+    <p>Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+
+    <h2>Section 2</h2>
+    <p>Proin porttitor, orci nec nonummy molestie, enim est eleifend mi.</p>
+    <p>Duis semper. Duis arcu massa, scelerisque vitae, consequat in.</p>
+
+    <h2>Section 3</h2>
+    <p>Ut in risus volutpat libero pharetra tempor.</p>
+    <p>Praesent blandit odio eu enim.</p>
+
+    <!-- Repeat content to generate pages -->
+    <h2>More Content</h2>
+    <p>
+      Integer lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a,
+      ipsum. Morbi blandit ligula feugiat magna.
+    </p>
+
+    <p>
+      Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec
+      ante. Donec ullamcorper.
+    </p>
+
+    <p>
+      Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+      facilisis luctus, metus.
+    </p>
+
+    <p>Repeat blocks like this to ensure multiple pages during printing.</p>
+  </body>
+</html>
